@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#04152c">
+  <title>京津冀教育协同发展监测平台</title>
+  <link rel="stylesheet" href="./styles.css?v=20261013c"><link rel="stylesheet" href="./knowledge.css?v=20261009a"><link rel="stylesheet" href="./assistant/jjj-assistant.css?v=20261014a">
+</head>
+<body>
+  <div class="ambient ambient-a"></div><div class="ambient ambient-b"></div>
+  <div class="shell">
+    <div id="explorerBackdrop" class="explorer-backdrop hidden"></div>
+    <header class="topbar">
+      <div class="brand">
+        <div class="brand-mark" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+        <div><h1>京津冀教育协同发展监测平台</h1><div class="brand-subline"><p>BEIJING · TIANJIN · HEBEI EDUCATION COLLABORATION MONITOR</p></div></div>
+      </div>
+      <div class="topbar-right">
+        <div class="topline">资料库更新日期：2026年9月26日</div>
+        <div class="global-period-controls" aria-label="全部事件板块的年份和月份"><label class="global-period-field"><span>年份</span><select id="globalYear" aria-label="总控年份"></select></label><label class="global-period-field"><span>月份</span><select id="globalMonth" aria-label="总控月份"></select></label></div>
+      </div>
+      <img class="skyline" src="./assets/beijing-skyline.svg" alt="天坛祈年殿与城市建筑的蓝色线稿">
+    </header>
+
+    <main>
+      <section class="dashboard-grid">
+        <div class="left-stack">
+          <section class="panel panel-hotspots">
+            <div class="panel-head"><h2>热点词云</h2><div class="segmented" role="tablist"><button class="active" data-hot-tab="news">最新事件</button><button data-hot-tab="cloud">热点关键词</button></div></div>
+            <div id="cloudPanel" class="hot-content hidden"><div class="year-picker"><select id="wordYear" aria-label="词云年份"></select><select id="wordMonth" class="month-select" aria-label="词云月份"></select></div><div class="word-cloud" id="wordCloud" aria-label="年度或月度关键词词云"></div></div>
+            <div id="latestPanel" class="hot-content"><div class="year-picker"><select id="latestYear" aria-label="最新事件年份"></select><select id="latestMonth" class="month-select" aria-label="最新事件月份"></select></div><div class="ticker-window"><div id="newsTicker" class="ticker-track"></div></div></div>
+          </section>
+          <section class="panel panel-structure">
+            <div class="panel-head"><h2>协同结构分析</h2><div class="segmented" role="tablist"><button class="active" data-structure="stage">学段分布</button><button data-structure="type">协同类型</button></div></div>
+            <div class="structure-period"><select id="structureYear" class="compact-year" aria-label="结构分析年份"></select><select id="structureMonth" class="month-select" aria-label="结构分析月份"></select></div>
+            <div class="structure-content"><div class="donut-wrap"><div id="structureChart"></div></div><div id="structureLegend" class="legend-list"></div></div>
+          </section>
+        </div>
+
+        <section class="panel panel-map">
+          <div class="panel-head map-head"><h2>京津冀区县教育协同活跃度 <button class="help" data-tip="同一去重事件在同一区县只计一次；跨区县分别计数。月度按最早可核实的关联报道发布日期统计。">?</button></h2><button id="mapDetails" class="explorer-open" type="button">查看详情</button><div class="panel-period"><select id="mapYear" class="compact-year" aria-label="区县地图年份"></select><select id="mapMonth" class="month-select" aria-label="区县地图月份"></select></div><button class="explorer-close" type="button" aria-label="关闭地图详情">×</button></div>
+          <div class="map-tabs" id="mapTabs"></div>
+          <form id="mapSearchForm" class="panel-search explorer-search"><input id="mapSearch" list="entitySearchOptions" aria-label="搜索地图上的主体或地名" placeholder="在详情中搜索主体或地名"><button type="submit">搜索</button><button id="mapSearchClear" type="button" aria-label="清除地图搜索">×</button></form>
+          <div class="map-canvas"><div id="mapWorld" class="map-world"><svg id="districtMap" viewBox="0 0 820 590" role="img" aria-label="京津冀区县协同事件热力地图"></svg><div class="map-label map-label-bj">北京</div><div class="map-label map-label-tj">天津</div><div class="map-label map-label-hb">河北</div></div><div class="province-switch" id="provinceSwitch"><button class="active" data-province="全部">全部</button><button data-province="北京市">北京市</button><button data-province="天津市">天津市</button><button data-province="河北省">河北省</button></div><div class="map-scale" aria-label="比例尺：0、50、100、200公里"><span>0</span><span>50</span><span>100</span><span>200 公里</span></div><div class="north">N<span>▲</span></div><div class="map-legend"><b>去重事件数</b><div><i style="background:#0c427a"></i> 0</div><div><i style="background:#1768bc"></i> 1—9</div><div><i style="background:#35a1f0"></i> 10—29</div><div><i style="background:#6bd7ff"></i> 30—69</div><div><i style="background:#50c3b0"></i> ≥70</div></div><div class="map-zoom"><button id="mapZoomOut" type="button" aria-label="缩小地图">−</button><input id="mapZoom" type="range" min="80" max="220" step="5" value="100" aria-label="地图缩放"><button id="mapZoomIn" type="button" aria-label="放大地图">+</button><span id="mapZoomValue">100%</span></div></div>
+          <aside class="explorer-aside" aria-label="区县协同详情"><div id="mapExplorerInfo"></div></aside>
+        </section>
+
+        <section class="panel panel-network">
+          <div class="panel-head"><h2>教育协同合作网络 <button class="help" data-tip="节点大小随去重事件数变化。地区配对仅使用已核实属地的主体；月度按最早可核实的关联报道发布日期统计。">?</button></h2><button id="networkDetails" class="explorer-open" type="button">查看详情</button><div class="panel-period"><select id="networkYear" class="network-select" aria-label="网络图年份"></select><select id="networkMonth" class="month-select" aria-label="网络图月份"></select></div><button class="explorer-close" type="button" aria-label="关闭合作网络详情">×</button></div>
+          <div class="network-region-filter"><select id="networkRegionA" aria-label="左侧合作地区"></select><span>×</span><select id="networkRegionB" aria-label="右侧合作地区"></select></div>
+          <form id="networkSearchForm" class="panel-search explorer-search"><input id="networkSearch" list="entitySearchOptions" aria-label="搜索合作网络中的主体或地名" placeholder="在详情中搜索主体或地名"><button type="submit">搜索</button><button id="networkSearchClear" type="button" aria-label="清除网络搜索">×</button></form>
+          <div class="network-body"><div id="networkChart" style="--network-zoom:1.2"></div><button id="knowledgeOpen" class="knowledge-open" type="button">知识图谱 ↗</button><button id="networkPairList" class="network-list-button hidden" type="button">查看主体对 ↗</button><div class="network-legend"><span><i style="--c:#277fff"></i>高校</span><span><i style="--c:#4cdecf"></i>中小学</span><span><i style="--c:#ffba38"></i>职业院校</span><span><i style="--c:#bf7bf5"></i>科研机构</span><span><i style="--c:#fb6679"></i>政府部门</span><span><i style="--c:#f7d74d"></i>企业</span><span><i style="--c:#9aacc1"></i>其他</span></div><div class="network-zoom"><button id="networkZoomOut" type="button" aria-label="缩小网络图">−</button><input id="networkZoom" type="range" min="80" max="180" step="5" value="120" aria-label="网络图缩放"><button id="networkZoomIn" type="button" aria-label="放大网络图">+</button><span id="networkZoomValue">120%</span></div></div>
+          <aside class="explorer-aside" aria-label="合作主体详情"><div id="networkExplorerInfo"></div></aside>
+        </section>
+      </section>
+
+      <section class="trend-grid" aria-label="年度趋势">
+        <article class="panel trend-card" data-metric="activity"><div class="trend-head"><h2>教育协同活跃度 <button class="help" data-tip="年度纳入新闻篇数，与 9 月 26 日计算表格中的当年新闻总数一致。">?</button></h2><button class="text-link trend-detail" data-metric="activity">查看详情 ›</button></div><div class="trend-inner"><div class="trend-value"><strong id="activityValue">—</strong><span>篇新闻</span><em id="activityChange">—</em><small id="activityYear">—</small></div><div class="trend-chart" id="activityChart"></div></div></article>
+        <article class="panel trend-card" data-metric="development"><div class="trend-head"><h2>京津冀教育发展指数 <button class="help" data-tip="各指标分别按三地历年原值区间线性映射至45—80分，区间参照协同度现有分值范围。左侧为三地等权均值；分值仅供同屏展示。">?</button></h2><button id="developmentMetricLabel" class="metric-pill" type="button" aria-label="选择教育发展指标" aria-haspopup="listbox" aria-expanded="false">综合指数</button></div><div class="trend-inner"><div class="trend-value"><strong id="developmentValue">—</strong><span>分 · 三地等权均值</span><em id="developmentChange">—</em><small id="developmentYear">—</small></div><div class="trend-chart" id="developmentChart"></div></div><div class="trend-source"><span class="region-key"><i style="--c:#39b9ff"></i>北京 <i style="--c:#43d8c0"></i>天津 <i style="--c:#ffbd56"></i>河北</span> · 数据来源：2025年统计年鉴</div></article>
+        <article class="panel trend-card" data-metric="synergy"><div class="trend-head"><h2>京津冀区域协同度 <button class="help" data-tip="跨三地计算的综合及一级协同度，0—100分；2024年含预测观测值。">?</button></h2><button id="synergyMetricLabel" class="metric-pill" type="button" aria-label="选择协同度指标" aria-haspopup="listbox" aria-expanded="false">综合协同度</button></div><div class="trend-inner"><div class="trend-value"><strong id="synergyValue">—</strong><span>分 · 当前分项</span><em id="synergyChange">—</em><small id="synergyYear">—</small></div><div class="trend-chart" id="synergyChart"></div></div><div class="trend-source">数据来源：2025年统计年鉴</div></article>
+      </section>
+    </main>
+    <footer class="footer"><span>政府网站 <b>|</b> 学校官网 <b>|</b> 教育媒体 <b>|</b> 平台采集整理</span></footer>
+  </div>
+  <div id="tooltip" class="floating-tooltip hidden"></div>
+  <datalist id="entitySearchOptions"></datalist>
+  <div id="drawerBackdrop" class="drawer-backdrop hidden"></div>
+  <aside id="drawer" class="drawer" aria-hidden="true"><div class="drawer-top"><div><small id="drawerEyebrow">事件详情</small><h2 id="drawerTitle">—</h2></div><button id="drawerClose" aria-label="关闭详情">×</button></div><div id="drawerContent" class="drawer-content"></div></aside>
+  <div id="knowledgeBackdrop" class="knowledge-backdrop hidden"><section class="knowledge-modal" role="dialog" aria-modal="true" aria-labelledby="knowledgeTitle"><header class="knowledge-head"><div><span>协同主体与事件关系</span><h2 id="knowledgeTitle">京津冀教育协同知识图谱</h2></div><small id="knowledgeCounts">加载中…</small><button id="knowledgeClose" type="button" aria-label="关闭知识图谱">×</button></header><div class="knowledge-toolbar"><div class="knowledge-modes" role="tablist" aria-label="图谱视图"><button type="button" data-kg-mode="organizations" class="active">机构合作</button><button type="button" data-kg-mode="events">机构—事件</button></div><form id="knowledgeSearchForm"><input id="knowledgeSearch" type="search" placeholder="搜索机构名称" aria-label="搜索知识图谱中的机构"><button type="submit">定位</button></form><button id="knowledgeReset" type="button">返回总览</button></div><div class="knowledge-main"><div class="knowledge-canvas"><div id="knowledgeGraph" role="img" aria-label="教育协同知识图谱"></div><div class="knowledge-legend"><span><i style="background:#3aa8ff"></i>学校</span><span><i style="background:#b987ff"></i>其他机构</span><span><i style="background:#ff7686"></i>政府部门</span><span><i style="background:#ffd66e"></i>企业</span><span><i style="background:#48e1d3"></i>事件</span></div></div><aside id="knowledgeDetails" class="knowledge-details" aria-live="polite"></aside></div><footer class="knowledge-foot">2026-10-09 数据快照 · 共同参与同一事件不必然表示双方直接签约</footer></section></div>
+  <script src="./vendor/echarts.min.js"></script><script src="./app.js?v=20261009d"></script><script src="./knowledge.js?v=20261009b"></script><script src="./assistant/jjj-assistant.js?v=20261014a"></script><script>JJJAssistant.mount({assetBase:"./assistant/assets/",webUrl:"https://cloud.fastgpt.cn/chat/share?shareId=rMwRsUSl5Kh2TZBwPti0iURb",initialMode:"web",allowSiteMode:false});</script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 155" fill="none">
+  <defs>
+    <linearGradient id="building" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#1995e2" stop-opacity=".1"/><stop offset="1" stop-color="#0baaf4" stop-opacity=".35"/></linearGradient>
+    <linearGradient id="roof" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#31b9fb" stop-opacity=".35"/><stop offset="1" stop-color="#0b6bbb" stop-opacity=".13"/></linearGradient>
+    <linearGradient id="ground" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#33c9ff" stop-opacity=".55"/><stop offset="1" stop-color="#03a2ef" stop-opacity=".07"/></linearGradient>
+    <filter id="halo" x="-25%" y="-45%" width="150%" height="190%"><feGaussianBlur stdDeviation="1.1" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+  </defs>
+  <g stroke="#197ec4" stroke-width="1" opacity=".55">
+    <path d="M0 149h1000M0 153h1000M0 137h1000"/>
+    <path d="M25 149V97l13-18 13 18v52m-18-49h11m-11 10h11m-11 10h11m-6-42V67m-32 82v-34h13v34m44 0v-27h15v27m14 0v-34h13v34m18 0v-29h14v29m46 0v-23h19v23m8 0v-37h15v37"/>
+    <path d="M207 149v-25h29v25m-23-17h6m9 0h5m-20 8h6m9 0h5m29 9v-38h23v38m-17-29h5m7 0h5m-17 10h5m7 0h5m35 19v-22h33v22"/>
+    <path d="M604 149v-31h17v31m-13-21h4m5 0h3m43 21v-36h22v36m-17-27h5m7 0h4m-16 10h5m7 0h4m30 17v-24h19v24"/>
+    <path d="M901 149v-35h20v35m-15-25h5m5 0h4m-14 9h5m5 0h4m30 16v-50h24v50m-18-38h5m8 0h4m-17 12h5m8 0h4m-17 11h5m8 0h4"/>
+  </g>
+  <g stroke="#34b7fb" stroke-width="1.2" stroke-linejoin="round" filter="url(#halo)">
+    <path d="M68 149v-34h35v34m-29-26h23m-23 9h23m-23 9h23M109 149v-38h31v38m-24-29h17m-17 9h17m-17 9h17" fill="url(#building)"/>
+    <path d="M62 113q12-10 25-5 11-6 23 3m7-3q12-8 23 2m34 39V96l12-9 12 9v53m-23-44h22m-17 10h10m-10 10h10m-10 10h10m-5-47V73m-7 10h14"/>
+    <path d="M214 149V94h20l5-11 8 11h18v55m-45-45h38m-34 12h5m10 0h5m10 0h5m-35 10h5m10 0h5m10 0h5m-35 11h5m10 0h5m10 0h5" fill="url(#building)"/>
+    <path d="M286 149v-31l13-8 13 8v31m-23-23h20m-20 11h20m25 12v-22h36v22m-41-22q10-9 20-5 12-6 25 5"/>
+    <path d="M468 33V17m-4 9 4-9 4 9M449 42q19-10 38 0" stroke-width="1.5"/>
+    <path d="M423 64q25-6 45-30 20 24 45 30l-13 7q-32-9-64 0Z" fill="url(#roof)" stroke-width="1.8"/>
+    <path d="M413 91q31-6 55-27 24 21 55 27l-15 9q-40-10-80 0Z" fill="url(#roof)" stroke-width="1.9"/>
+    <path d="M399 121q40-8 69-29 29 21 69 29l-18 10q-51-12-102 0Z" fill="url(#roof)" stroke-width="2"/>
+    <path d="M436 71v17m65-17v17M430 100v18m78-18v18M418 130v18m100-18v18" fill="url(#building)"/>
+    <path d="M445 71v15m11-15v15m11-15v15m11-15v15m11-15v15M441 100v16m12-16v16m12-16v16m12-16v16m12-16v16m12-16v16" opacity=".85"/>
+    <path d="M431 132v16m11-17v17m11-17v17m11-18v18m11-18v18m11-18v18m11-17v17m11-17v17M455 148v-20q13-10 26 0v20"/>
+    <path d="M408 148h120m-132 4h144M435 75h67m-77 29h86m-96 30q53 4 106 0" stroke-width="1"/>
+    <path d="M562 149v-47l11-13 12 13v47m-19-39h15m-15 10h15m-15 10h15m-15 10h15m8 9v-28h25v28m-20-18h14m-14 9h14" fill="url(#building)"/>
+    <path d="M632 149V79l14-19 14 19v70m-14-89V46m-10 39h20m-20 10h20m-20 10h20m-20 10h20m-20 10h20m-20 10h20m7 14v-35h17v35" fill="url(#building)"/>
+    <path d="M689 149V85l9-14 9 14v64m-14-60h10m-10 11h10m-10 11h10m-10 11h10m-10 11h10M725 149v-33q8-18 17 0v33" fill="url(#building)"/>
+    <path d="M760 149V94l13-16 13 16v55m-20-49h14m-14 10h14m-14 10h14m-14 10h14m-14 10h14" fill="url(#building)"/>
+    <path d="M799 149q5-40 5-76l6-12 7 12q-1 38 5 76m-12-87V40m-5 42h11m-11 13h12m-11 13h12m-11 13h13m-13 13h14" fill="url(#building)" stroke-width="1.7"/>
+    <path d="M842 149v-47l14-11 14 11v47m-20-38h14m-14 11h14m-14 11h14m20 16v-31h20v31m-15-20h10m-10 10h10" fill="url(#building)"/>
+    <path d="M928 149v-39h14v39m-11-50h8v11m-4-11V89m-27 60v-19h19m16 19v-18h22" fill="url(#building)"/>
+  </g>
+  <path d="M0 149h1000v6H0Z" fill="url(#ground)"/>
+  <path d="M0 149h1000" stroke="#4bcaff" stroke-width="1.2" filter="url(#halo)"/>
+</svg>
